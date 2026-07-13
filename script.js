@@ -41,27 +41,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // --- SECTION 2: ABOUT CAROUSEL SYSTEM ---
-    const carouselImgs = document.querySelectorAll(".carousel-img");
-    const dots = document.querySelectorAll(".dot");
+const carouselImgs = document.querySelectorAll(".carousel-img");
+const dots = document.querySelectorAll(".dot");
+
+// Only run carousel code if elements exist
+if (carouselImgs.length > 0 && dots.length > 0) {
     let currentSlide = 0;
     let autoRotationTimer;
-
+    
     const changeSlideTo = (targetIndex) => {
         carouselImgs.forEach(img => img.classList.remove("active"));
         dots.forEach(dot => dot.classList.remove("active"));
-        
         carouselImgs[targetIndex].classList.add("active");
         dots[targetIndex].classList.add("active");
         currentSlide = targetIndex;
     };
-
+    
     const startCarouselLoop = () => {
         autoRotationTimer = setInterval(() => {
             let nextIndex = (currentSlide + 1) % carouselImgs.length;
             changeSlideTo(nextIndex);
         }, 3000);
     };
-
+    
     dots.forEach(dot => {
         dot.addEventListener("click", (e) => {
             clearInterval(autoRotationTimer);
@@ -70,8 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
             startCarouselLoop();
         });
     });
-
+    
     startCarouselLoop();
+}
 
     // --- SECTION 5: ALUMNI MOUSE HOVER PREVIEW CONTROLLER ---
     const tableRows = document.querySelectorAll(".alumni-row");
