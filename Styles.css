@@ -1,0 +1,2642 @@
+/* --- MODERN DIGITAL BRUTALISM ENGINE (NO THICK BORDERS / CLEAN TYPOGRAPHY) --- */
+:root {
+    --bg-black: #000000;
+    --bg-white: #ffffff;
+    --bg-light-grey: #f4f4f4;
+    --bg-dark-grey: #121212;
+    --color-neon: #00ff66;
+    --dim-neon: #00ff6622;
+    --cream-grey: #ededed;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-black);
+    color: var(--bg-white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- THE UNIFIED SYSTEM STYLE FOR BUTTONS AND LINKS --- */
+/* Regla estricta: Negro por defecto, Verde Neón puro al pasar el mouse. Sin bordes retros antiguos. */
+.btn-unified {
+    display: inline-block;
+    padding: 18px 38px;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bg-white);
+    background-color: var(--bg-black);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    text-align: center;
+}
+
+.btn-unified:hover {
+    background-color: var(--color-neon) !important;
+    color: var(--bg-black) !important;
+}
+
+.btn-secondary {
+     display: inline-block;
+    padding: 16px 36px;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bg-white);
+    background-color: #3e3e3e;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    text-align: center;
+}
+.btn-secondary:hover {
+    background-color: var(--color-neon) !important;
+    color: var(--bg-black) !important;
+}
+
+/* --- 4 LEVELS OF LECTURE ENGINE --- */
+/* Nivel 1: Titulos masivos y ultra anchos */
+.title-massive {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.85;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+}
+
+/* Nivel 2: Subtitulos en Big Shoulders compactos */
+.subtitle {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Nivel 3: Parrafos en Sans-Serif limpio para pantallas */
+.paragraph {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: inherit;
+}
+
+/* Nivel 4: Precios, botones y tags complementarios */
+.price-tag {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 20px 0;
+}
+
+/* Modificadores de color contextuales */
+.text-black { color: var(--bg-black); }
+.text-white { color: var(--bg-white); }
+.text-neon { color: var(--color-neon); }
+.text-center { text-align: center; }
+.max-width-center { max-width: 650px; margin: 0 auto; }
+.margin-top { margin-top: 50px; }
+
+/* Estructura base de secciones */
+.section {
+    padding: 120px 6%;
+    position: relative;
+    width: 100%;
+}
+
+/* --- REVEAL INTERSECTION ANIMATIONS --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- SECTION 0: NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-black);
+    padding: 24px 6%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-logo {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--bg-white);
+}
+.nav-logo span { color: var(--color-neon); }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: var(--bg-white);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--color-neon); }
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* --- SECTION 1: HERO --- */
+.hero-section {
+    background-color: var(--bg-light-grey);
+    color: var(--bg-black);
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.hero-text .paragraph {
+    margin: 30px 0;
+    max-width: 550px;
+    opacity: 0.85;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 20px;
+}
+
+.clean-hero-img {
+    width: 116%;
+    height: auto;
+    object-fit: cover;
+    margin-left: -60px;
+}
+
+/* --- SECTION 2: ABOUT US --- */
+.about-section {
+    background-color: var(--bg-light-grey);
+    color: var(--bg-black);
+}
+
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-info .paragraph {
+    margin: 15px 0;
+    opacity: 0.85;
+}
+
+.about-carousel-container {
+    position: relative;
+    height: 550px;
+    width: 600px;
+    overflow: hidden;
+    background-color: var(--bg-black);
+}
+
+.carousel-slide-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 1; 
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-img.active { 
+    opacity: 1; 
+    z-index: 2; 
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.dot.active { background-color: var(--color-neon); }
+
+/* --- SECTION 3: VALUES (Split Layout Engine) --- */
+.values-section {
+    padding: 0 !important; /* Eliminamos paddings externos para que la imagen toque los bordes arriba/abajo */
+    background-color: var(--bg-black);
+    width: 100%;
+}
+
+.values-split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    min-height: 10%; /* O el alto que prefieras para la sección, p.ej. 80vh o 100% */
+    align-items: stretch;
+}
+
+/* Contenedor de la Imagen Izquierda */
+.values-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.values-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fuerza a la imagen a llenar todo el espacio vertical y horizontal */
+    display: block;
+}
+
+/* Contenedor del Contenido Derecho */
+.values-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el bloque de texto verticalmente respecto a la imagen */
+    padding: 80px 14% 80px 6%; /* Controla el margen interno; alineando el contenido a la izquierda */
+    color: var(--text-white);
+}
+
+/* Elementos Internos de Texto */
+.title-m {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+
+.text-muted {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.brutal-line {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+/* Lista de valores con tus estilos corregidos */
+.values-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.value-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.value-num {
+    font-family: 'Big Shoulders Display', sans-serif; /* Consistencia tipográfica brutalista */
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-neon); /* O tu variable var(--neon-green) */
+    line-height: 1;
+}
+
+.value-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.08rem;
+    line-height: 1.5;
+    color: var(--text-white);
+}
+
+
+.btn-value-section {
+    display: inline-block;
+    padding: 16px 36px;
+    font-family: 'Big Shoulders Display', sans-serif; /* Lado B */
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bg-black);
+    background-color: var(--bg-white);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    text-align: center;
+}
+
+.btn-value-section:hover {
+    background-color: var(--color-neon);
+    color: var(--bg-black);
+}
+
+
+
+/* --- SECTION 3 (6): COURSES DISPLAY (NO BORDER CARDS) --- */
+/* --- MODERN DIGITAL BRUTALISM ENGINE (NO THICK BORDERS / CLEAN TYPOGRAPHY) --- */
+:root {
+    --bg-black: #000000;
+    --bg-white: #ffffff;
+    --bg-light-grey: #f4f4f4;
+    --bg-dark-grey: #121212;
+    --color-neon: #00ff66;
+    --dim-neon: #00ff6622;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Inter', sans-serif; /* Lado B */
+    background-color: #121212;
+    color: var(--bg-white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- THE UNIFIED SYSTEM STYLE FOR BUTTONS AND LINKS --- */
+.btn-unified {
+    display: inline-block;
+    padding: 16px 36px;
+    font-family: 'Big Shoulders Display', sans-serif; /* Lado B */
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bg-white);
+    background-color: var(--bg-black);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    text-align: center;
+}
+
+.btn-unified:hover {
+    background-color: var(--color-neon) !important;
+    color: var(--bg-black) !important;
+}
+
+/* --- 4 LEVELS OF LECTURE ENGINE --- */
+.title-massive {
+    font-family: 'Big Shoulders Display', sans-serif; /* Lado B */
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -1px;
+    margin-bottom: 25px;
+}
+
+.paragraph { 
+ font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: inherit;
+    
+}
+
+.section {
+    padding: 120px 6%;
+    position: relative;
+    width: 100%;
+}
+
+.text-center { text-align: center; }
+.text-white { color: var(--bg-white); }
+
+/* --- REVEAL ANIMATIONS --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- GRID SYSTEM --- */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* --- COURSE CARDS EXTENSION (LADO B STRICT STYLE) --- */
+.course-card {
+    background-color: var(--bg-white);
+    color: var(--bg-black);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: none; /* Sin bordes anchos */
+    overflow: visible;
+}
+
+.course-img-wrapper {
+   position: relative;
+    width: 100%;
+    height: 180px; 
+    overflow: hidden;
+}
+
+.course-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.course-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.course-title {
+    font-family: 'Big Shoulders Display', sans-serif; /* Cambiado a Lado B */
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.course-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #444444;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.course-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-price {
+    font-family: 'Big Shoulders Display', sans-serif; /* Cambiado a Lado B */
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--bg-black);
+    line-height: 1;
+}
+
+/* --- FEATURED VARIATION CENTERED CARD COURSE--- */
+
+/* Callout Tag Uniforme */
+.callout-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-neon);
+    color: var(--bg-black);
+    font-family: 'Big Shoulders Display', sans-serif; /* Cambiado a Lado B */
+    font-weight: 900;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    letter-spacing: 0.05em;
+    z-index: 5;
+    text-transform: uppercase;
+}
+
+/* --- HIGHLIGHT FOR THE CENTERED FEATURED SIM-RACING CARD --- */
+.course-card.featured {
+    /* Crea un resplandor neón sutil, uniforme y elegante en el fondo */
+    box-shadow: 0 0 90px rgba(0, 255, 102, 0.2);
+    
+    /* Opcional: si quieres que tenga un borde sutilmente resaltado en combinación */
+    border: 6px solid rgba(0, 255, 102, 0.9);
+    
+    /* Asegura que el resplandor tenga una transición limpia si la tarjeta se mueve */
+    transition: box-shadow 0.3s ease;
+}
+
+/* SISTEMA DE BULLETS BRUTALISTAS */
+.course-bullets {
+    list-style: none; /* Quitamos los círculos clásicos aburridos */
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.course-bullets li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--bg-black);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.course-bullets li::before {
+    content: "★";
+    color: var(--color-black);
+    background-color: var(--bg-none);
+    padding: 1px 2px;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 0.9rem;
+}
+
+/* --- EXTENSIONES COMERCIALES PARA LAS TARJETAS (BRUTALISMO DIGITAL) --- */
+
+/* Badge técnico de cantidad de módulos sobre la imagen */
+.course-img-wrapper {
+    position: relative;
+}
+
+.course-badge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bg-black);
+    color: var(--bg-white);
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    padding: 6px 14px;
+    letter-spacing: 1px;
+    z-index: 4;
+}
+
+/* Bloque estructurado de finanzas */
+.course-finance-box {
+   margin-top: auto; 
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-top: 2px solid var(--bg-light-grey);
+    padding-top: 1rem;
+}
+
+.course-price-container {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+/* El precio ARS toma el protagonismo masivo brutalista */
+.course-price-ars {
+   font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 2.4rem; /* Un toque más compacto */
+    font-weight: 900;
+    color: var(--bg-black);
+    line-height: 1;
+}
+
+/* Referencia USD secundaria limpia */
+.course-price-usd {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #777777;
+}
+
+/* Texto de las cuotas */
+.course-installments {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--color-neon);
+    background-color: var(--bg-black);
+    padding: 3px 6px;
+    width: max-content;
+    margin-top: 2px;
+}
+
+/* Ajuste del botón para que ocupe todo el ancho de la tarjeta como call-to-action de venta */
+.btn-enroll {
+    width: 100%;
+    padding: 14px 0;
+}
+
+
+/* --- SECTION 4 (5): ALUMNI LEADERBOARD --- */
+.alumni-section {
+    background-color: var(--cream-grey);
+    color: var(--bg-black);
+   
+}
+
+.table-container {
+    position: relative;
+    margin: 50px 0 30px 0;
+    overflow-x: auto;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--bg-black);
+}
+
+.leaderboard-table th {
+    background-color: var(--bg-black);
+    color: var(--bg-white);
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 900;
+    padding: 18px 20px;
+    text-align: left;
+}
+
+.leaderboard-table td {
+    padding: 22px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 500;
+}
+
+.leaderboard-table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.leaderboard-table tbody tr:hover {
+    background-color: var(--bg-light-grey);
+    cursor: crosshair;
+}
+
+.alumni-hover-preview {
+    position: fixed;
+    width: 150px;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+    background-color: var(--bg-black);
+}
+
+.link-wrapper { margin-top: 25px; }
+
+.view-more-link {
+    align-self: flex-start;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--bg-black);
+    border-bottom: 2px solid var(--color-neon);
+    padding-bottom: 4px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.view-more-link:hover {
+    border-color: var(--bg-black);
+}
+
+/* --- SECTION 5 (4) : EQUIPMENT INTERACTIVE MAP --- */
+.equip-section {
+    background-color: var(--cream-grey);
+    padding: 30px 60px; /* Gives the section some room to breathe */
+}
+
+/* New Grid Wrapper to manage the two columns */
+.equip-grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacked by default on mobile */
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: center; /* Centers items vertically */
+}
+
+/* Left side styling adjustments */
+.equip-text-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.equip-text-side .title-massive {
+    font-size: 8rem; /* Adjust this value (e.g., 2rem, 3rem) until it looks right to you */
+    margin-bottom: 10px;
+}
+
+.equip-subtitle {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--bg-black);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.equip-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.btn-more-equip {
+    align-self: flex-start;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--bg-black);
+    border-bottom: 2px solid var(--color-neon);
+    padding-bottom: 4px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.btn-more-equip:hover {
+    border-color: var(--bg-black);
+}
+
+/* --- MAP WORK --- */
+.map-container {
+    position: relative; /* Essential to anchor absolute hotspots */
+    width: 100%;
+}
+
+.map-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (min-width: 992px) {
+.equip-grid-container {
+grid-template-columns: 40% 60%;
+}
+}
+.hotspot {
+position: absolute;
+transform: translate(-50%, -50%);
+z-index: 10;
+}
+.hotspot-btn {
+width: 36px;
+height: 36px;
+background-color: var(--bg-black);
+color: var(--bg-white);
+border: none;
+font-size: 1.4rem;
+font-weight: 600;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+transition: transform 0.2s, background-color 0.2s;
+}
+.hotspot:hover .hotspot-btn {
+transform: scale(1.1);
+background-color: var(--color-neon);
+color: var(--bg-black);
+}
+.hotspot-card {
+position: absolute;
+bottom: 45px;
+left: 50%;
+transform: translateX(-50%) translateY(10px);
+width: 240px;
+background-color: var(--bg-black);
+color: var(--bg-white);
+padding: 20px;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.hotspot-card h4 {
+font-family: 'Big Shoulders Display', sans-serif;
+font-size: 1.4rem;
+font-weight: 900;
+text-transform: uppercase;
+margin-bottom: 6px;
+color: var(--color-neon);
+}
+.hotspot-card p {
+font-size: 0.88rem;
+line-height: 1.4;
+opacity: 0.8;
+}
+.hotspot:hover .hotspot-card {
+opacity: 1;
+pointer-events: auto;
+transform: translateX(-50%) translateY(0);
+}
+
+/* --- THE REST OF YOUR ORIGINAL HOTSPOT STYLES CONTINUE UNCHANGED --- */
+.hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.hotspot-btn {
+    width: 36px;
+    height: 36px;
+    background-color: var(--bg-black);
+    color: var(--bg-white);
+    border: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: transform 0.2s, background-color 0.2s;
+}
+.hotspot:hover .hotspot-btn {
+    transform: scale(1.1);
+    background-color: var(--color-neon);
+    color: var(--bg-black);
+}
+
+.hotspot-card {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 240px;
+    background-color: var(--bg-black);
+    color: var(--bg-white);
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.hotspot-card h4 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    color: var(--color-neon);
+}
+
+.hotspot-card p {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    opacity: 0.8;
+}
+
+.hotspot:hover .hotspot-card {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* --- SECTION 7: SCROLL GALLERY --- */
+
+/* --- BRUTALIST GALLERY STYLES --- */
+.brutal-gallery-section {
+  background-color: var(--cream-grey);
+  min-height: 100vh;
+  padding: 100px 40px;
+  box-sizing: border-box;
+}
+
+.brutal-header {
+  max-width: 1400px;
+  margin: 0 auto 60px auto;
+  border-bottom: 8px solid var(--bg-black, #000000); /* Heavy brutalist structural dividing lines */
+  padding-bottom: 20px;
+}
+
+.brutal-title {
+  font-size: clamp(
+    3rem,
+    8vw,
+    6rem
+  ); /* Scalable oversized headline text fields */
+  color: var(--bg-black, #000000);
+  line-height: 0.9;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.brutal-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  border-top: 4px solid var(--bg-black, #000000);
+}
+
+.brutal-row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px 20px;
+  border-bottom: 4px solid var(--bg-black, #000000);
+  transition: background-color 0.15s steps(1); /* Sharp instant transition timing */
+  cursor: crosshair; /* Industrial tool pointer style */
+}
+
+.brutal-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  z-index: 5;
+}
+
+.brutal-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #666666;
+  line-height: 1;
+}
+
+.brutal-text h3 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--bg-black, #000000);
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.brutal-text p {
+  font-size: 0.9rem;
+  color: #555555;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* THE BRUTALIST IMAGE POP: Embedded directly inside the row framework */
+.brutal-img-frame {
+  width: 100%;
+  height: 250px;
+  margin-top: 20px;
+  border: 4px solid var(--bg-black, #000000);
+  overflow: hidden;
+  background-color: #000;
+}
+
+.brutal-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+@media (min-width: 992px) {
+.brutal-row {
+flex-direction: row;
+align-items: center;
+padding: 40px 20px;
+}
+.brutal-img-frame {
+position: absolute;
+right: 40px;
+top: 50%;
+transform: translateY(-50%) scale(0.8);
+width: 600px;
+height: 367px;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.15s ease, transform 0.15s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+box-shadow: 10px 10px 0px var(--bg-black, #000000);
+z-index: 10;
+}
+.brutal-row:hover {
+background-color: var(--color-neon, #00ff00);
+}
+.brutal-row:hover .brutal-num,
+.brutal-row:hover .brutal-text p {
+color: var(--bg-black, #000000);
+}
+.brutal-row:hover .brutal-img-frame {
+opacity: 1;
+transform: translateY(-50%) scale(1) rotate(-2deg);
+}
+.brutal-row:hover .brutal-img-frame img {
+filter: grayscale(0%);
+transform: scale(1.05);
+}
+}
+/* --- SECTION 8: TOURNAMENTS (BRUTALIST REAL BG) --- */
+
+.tournament-section .title-massive {
+    font-size: 5rem; /* Adjust this value (e.g., 2rem, 3rem) until it looks right to you */
+    margin-bottom: 20px;
+}
+
+.tournament-section {
+    background-color: var(--bg-dark-grey);
+    width: 100%;
+}
+
+/* Grid ultra-limpia: pasa de 1 columna en móvil a 3 en escritorio automáticamente */
+.tournament-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* LA TARJETA CONTENEDORA */
+.tournament-card {
+    position: relative;
+    height: 450px; /* Altura ideal fija para que la imagen luzca de fondo */
+    background-color: var(--bg-black);
+    border: 6px solid var(--bg-black);
+    box-shadow: 12px 12px 0px var(--bg-black); /* Sombra bloque brutalista */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Empuja todo el contenido de texto y botón hacia abajo */
+    overflow: hidden;
+}
+
+/* IMAGEN DE FONDO ABSOLUTA */
+.card-bg-image {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+    
+    /* Transición para el zoom (transform) y el tinte neón (filter) */
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
+}
+
+/* CONTENEDOR INFERIOR (TÍTULO ABAJO DE LA IMAGEN VISUALMENTE + BOTÓN) */
+.tournament-footer {
+    position: relative;
+    z-index: 2; /* Por encima de la imagen de fondo */
+    background-color: var(--bg-black); /* Bloque negro sólido brutalista */
+    border-top: 6px solid var(--bg-black);
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* El título que aprovecha tu clase .subtitle */
+.tournament-tag {
+    margin: 0 !important;
+    text-align: left;
+    line-height: 1.1;
+}
+
+/* EL BOTÓN ADAPTADO A LA TARJETA */
+.tournament-btn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 0; /* Un poco más compacto para que entre perfecto en la base */
+    font-size: 1.2rem;    
+}
+
+/* EFECTO HOVER SIMPLE (Opcional, solo para dar feedback mecánico en la tarjeta) */
+.tournament-card:hover .card-bg-image {
+    transform: scale(1.12);
+    
+    /* 2. FILTRO VERDE NEÓN: Convierte los tonos grises en verde neón puro mediante matriz de color */
+    filter: grayscale(0%) sepia(100%) hue-rotate(85deg) saturation(10) brightness(0.9) contrast(1.4);
+}
+
+.tournament-card:transition {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tournament-card:hover {
+    border-color: var(--color-neon);
+    box-shadow: 12px 12px 0px var(--color-neon);
+}
+
+/* --- SECTION 9: REVIEWS CAROUSEL --- */
+.reviews-section {
+    background-color: var(--cream-grey); /* CAMBIADO: Ahora es Gris Claro */
+    padding: 120px 0;
+}
+
+/* Cambiamos el título a negro para que contraste con el fondo claro */
+.reviews-section .title-massive {
+    color: var(--bg-black) !important;
+}
+
+.reviews-marquee-container {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 50px;
+    background-color: rgba(0, 0, 0, 0.02); /* Fondo del track muy sutil */
+    padding: 30px 0;
+    position: relative;
+}
+
+/* --- AJUSTE: Bordes difuminados más cortos y menos visibles --- */
+.reviews-marquee-container::before,
+.reviews-marquee-container::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 6%; /* REDUCIDO: Antes 15%, ahora 6% para que sea casi imperceptible */
+    z-index: 3;
+    pointer-events: none;
+}
+.reviews-marquee-container::before {
+    left: 0;
+    top: 0;
+    background: linear-gradient(to right, var(--bg-light-grey) 0%, transparent 100%);
+}
+.reviews-marquee-container::after {
+    right: 0;
+    top: 0;
+    background: linear-gradient(to left, var(--bg-light-grey) 0%, transparent 100%);
+}
+
+.marquee-inner-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeAuto 35s linear infinite;
+}
+
+.reviews-marquee-container:hover .marquee-inner-track {
+    animation-play-state: paused;
+}
+
+.reviews__list {
+    display: flex;
+    align-items: stretch;
+    gap: 25px; /* Un poco más compacto el espacio entre tarjetas */
+    padding-right: 25px;
+}
+
+/* --- AJUSTE: Tarjetas achicadas (Downsized) --- */
+.review-card {
+    background-color: var(--bg-white);
+    color: var(--bg-black);
+    
+    /* CAMBIO PRINCIPAL DE TAMAÑO: */
+    width: 320px;       /* REDUCIDO: De 380px a 320px de ancho */
+    padding: 24px;      /* REDUCIDO: De 35px a 24px para ganar espacio interno */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); /* Sombra brutalista muy suave por el fondo claro */
+}
+
+.user-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.user-meta img {
+    width: 48px;        /* REDUCIDO: De 55px a 48px */
+    height: 48px;       /* REDUCIDO: De 55px a 48px */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--bg-black);
+}
+
+.user-meta h4 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.3rem;  /* REDUCIDO: De 1.5rem a 1.3rem */
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.course-taken {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: #666666;
+    background-color: #ededed;
+    padding: 2px 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.review-text {
+    font-style: italic;
+    font-size: 0.95rem; /* REDUCIDO: De 1rem a 0.95rem */
+    line-height: 1.5;
+    color: #222222;
+    margin-bottom: 15px;
+}
+
+.stars {
+    color: #ffb700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-top: auto;
+}
+
+@keyframes marqueeAuto {
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
+}
+
+/* --- SECTION 10: FAQ ACCORDION --- */
+.faq-section {
+    background-color: var(--cream-grey);
+}
+
+.faq-accordion-container {
+    max-width: 800px;
+    margin: 50px auto 0 auto;
+}
+
+.faq-box {
+    background-color: var(--bg-black);
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+.faq-trigger {
+    padding: 24px;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-content p {
+    padding: 0 24px 24px 24px;
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+
+.faq-box.open .faq-trigger { color: var(--color-neon); }
+.extra-faq { display: none; }
+
+/* --- SECTION 11: NEWSLETTER --- */
+.newsletter-section {
+    background-color: var(--bg-dark-grey);
+}
+
+.newsletter-inner { max-width: 700px; margin: 0 auto; }
+.newsletter-form-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.brutal-input {
+    flex: 1;
+    padding: 18px;
+    background-color: #111;
+    border: 1px solid #333;
+    color: var(--bg-white);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+.brutal-input:focus { outline: none; border-color: var(--color-neon); }
+
+
+/* --- SECTION 12: SPONSORS ACCELERATOR --- */
+/* --- BRAND MARQUEE ENGINE (BRUTALIST INTEGRATION) --- */
+.brands-section {
+    padding: 60px 0;
+    background-color: var(--bg-black);
+    overflow: hidden;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.brands__viewport {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Difuminado sutil en los bordes izquierdo y derecho para una transición limpia */
+.brands__viewport::before,
+.brands__viewport::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+    pointer-events: none;
+}
+.brands__viewport::before {
+    left: 0;
+    top: 0;
+    background: linear-gradient(to right, var(--bg-black) 0%, transparent 100%);
+}
+.brands__viewport::after {
+    right: 0;
+    top: 0;
+    background: linear-gradient(to left, var(--bg-black) 0%, transparent 100%);
+}
+
+.brands__track {
+    display: flex;
+    width: max-content;
+    /* Ajustamos el tiempo a 30s para que con 9 logos vaya a una velocidad fluida y natural */
+    animation: marquee 30s linear infinite; 
+}
+
+/* Pausar el scroll si el usuario pasa el cursor por encima */
+.brands__track:hover {
+    animation-play-state: paused;
+}
+
+.brands__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+    
+    /* REGLA CRUCIAL: Usamos flex-start en lugar de space-around para mantener un ancho fijo */
+    justify-content: flex-start; 
+    
+    /* Espaciado fijo controlado matemáticamente entre los 9 logos */
+    gap: 80px; 
+    padding-right: 80px; /* DEBE ser exactamente idéntico al gap para que el empalme sea invisible */
+}
+
+.brands__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Logos tratados bajo una estética unificada (Blanco puro/Gris limpio) */
+.brands__logo {
+    height: 32px; /* Unificado ligeramente para mejor legibilidad */
+    width: auto;
+    object-fit: contain;
+    opacity: 0.4;
+    filter: brightness(0) invert(1); /* Fuerza a que cualquier SVG sea blanco puro */
+    transition: opacity 0.2s ease;
+}
+
+/* Ajuste específico para logos compactos o cuadrados (ej.: aws) */
+.brands__logo--square {
+    height: 44px; 
+}
+
+/* Hover brutalista digital: vuelve al brillo total sin alterar el color */
+.brands__item:hover .brands__logo {
+    opacity: 0.95;
+}
+
+/* Métrica de animación infinita basada en hardware (Mantiene el cálculo perfecto al 50%) */
+@keyframes marquee {
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
+}
+
+/* --- OPTIMIZACIÓN RESPONSIVA UNIFORME --- */
+@media (max-width: 992px) {
+    .brands__list {
+        gap: 60px;
+        padding-right: 60px; /* Mantiene la paridad con el gap reduciendo el tamaño en tablets */
+    }
+    .brands__logo {
+        height: 28px;
+    }
+    .brands__logo--square {
+        height: 38px;
+    }
+}
+
+@media (max-width: 768px) {
+    .brands-section {
+        padding: 45px 0;
+    }
+    .brands__list {
+        gap: 45px;
+        padding-right: 45px; /* Mantiene la paridad con el gap reduciendo el tamaño en móviles */
+    }
+    .brands__logo {
+        height: 24px;
+    }
+    .brands__logo--square {
+        height: 32px;
+    }
+}
+
+
+/* --- SECTION 13: FOOTER --- */
+.footer-root {
+    background-color: var(--bg-black);
+    border-top: 1px solid #222;
+    padding: 80px 6% 40px 6%;
+}
+
+/* Flex modificado para alinearse verticalmente de forma correcta con el nuevo bloque */
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Cambiado a flex-start para nivelar bloques altos */
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #222;
+}
+
+.footer-brand-block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-logo {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+}
+.footer-logo span { color: var(--color-neon); }
+
+/* Estilos de información de contacto de la academia */
+.footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #888888;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-item i {
+    color: var(--color-neon); /* Iconos resaltados */
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links a {
+    color: #888888;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.footer-links a:hover { color: var(--color-neon); }
+
+.footer-socials { display: flex; gap: 12px; }
+.social-ico {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+/* SISTEMA LEGAL DE LADO A LADO EN ESCRITORIO */
+.footer-legal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.legal-copy {
+    font-size: 0.8rem;
+    color: #444444;
+    margin: 0;
+}
+
+.legal-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #444444;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+.legal-link:hover {
+    color: var(--color-neon); /* Brilla en hover */
+}
+
+/* RESPONSIVE: En celulares centra todo el bloque inferior para mantener balance */
+@media (max-width: 768px) {
+    .footer-legal {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* =========================================
+RESPONSIVE DESIGN MAIN WEBSITE HOME (home3.html)
+========================================= */
+
+/* Tablet & Small Desktop (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-container, .grid-2col { 
+    grid-template-columns: 1fr; 
+    text-align: center; 
+  }
+  .hero-text .paragraph, .max-width-center { 
+    margin-left: auto; 
+    margin-right: auto; 
+  }
+  .hero-ctas { 
+    justify-content: center; 
+  }
+  .nav-links { 
+    display: none; 
+  }
+  .menu-toggle { 
+    display: block; 
+    color: #fff; 
+  }
+  
+  /* Hero Image Fix */
+  .clean-hero-img { 
+    width: 100%; 
+    margin-left: 0; 
+    max-width: 500px; 
+  }
+  
+  /* About Carousel Fix */
+  .about-carousel-container { 
+    width: 100%; 
+    max-width: 500px; 
+    margin: 0 auto; 
+    height: 400px; 
+  }
+
+  /* Values Section Fix */
+  .values-split-grid { 
+    grid-template-columns: 1fr; 
+  }
+  .values-image-wrapper { 
+    height: 400px; 
+  }
+  .values-content-wrapper { 
+    padding: 60px 6%; 
+    text-align: center; 
+  }
+  .values-list { 
+    align-items: center; 
+  }
+  .value-item { 
+    flex-direction: column; 
+    text-align: center; 
+    align-items: center; 
+  }
+
+  /* Equipment Section Fix */
+  .equip-section { 
+    padding: 60px 5%; 
+  }
+  .equip-text-side .title-massive { 
+    font-size: 4rem; 
+  }
+  .equip-subtitle { 
+    font-size: 1.8rem; 
+  }
+
+  /* Gallery Section Fix (Mobile shows images statically) */
+  .brutal-gallery-section { 
+    padding: 60px 5%; 
+  }
+  .brutal-img-frame {
+    position: relative; 
+    right: auto; 
+    top: auto; 
+    transform: none;
+    width: 100%; 
+    height: 250px; 
+    opacity: 1; 
+    margin-top: 20px; 
+    box-shadow: none;
+  }
+  .brutal-row:hover .brutal-img-frame { 
+    transform: none; 
+  }
+
+  /* Tournament Section Fix */
+  .tournament-section .title-massive { 
+    font-size: 3rem; 
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .nav-logo { 
+    font-size: 2rem; 
+  }
+  .section { 
+    padding: 80px 5%; 
+  }
+  
+  /* Hero CTAs stacked */
+  .hero-ctas { 
+    flex-direction: column; 
+    align-items: center; 
+  }
+  .hero-ctas .btn-unified, 
+  .hero-ctas .btn-secondary { 
+    width: 100%; 
+    max-width: 300px; 
+  }
+
+  /* About Carousel smaller */
+  .about-carousel-container { 
+    height: 300px; 
+  }
+
+  /* Values Section smaller */
+  .values-image-wrapper { 
+    height: 300px; 
+  }
+  .values-content-wrapper { 
+    padding: 40px 5%; 
+  }
+  .title-m { 
+    font-size: 2.5rem; 
+  }
+
+  /* Courses single column */
+  .grid-3 { 
+    grid-template-columns: 1fr; 
+  }
+  .course-title { 
+    font-size: 1.8rem; 
+  }
+  .course-price-ars { 
+    font-size: 2rem; 
+  }
+
+  /* Equipment text smaller */
+  .equip-text-side .title-massive { 
+    font-size: 3rem; 
+  }
+  .equip-subtitle { 
+    font-size: 1.5rem; 
+  }
+
+  /* Gallery adjustments */
+  .brutal-gallery-section { 
+    padding: 40px 5%; 
+  }
+  .brutal-title { 
+    font-size: 2.5rem; 
+  }
+  .brutal-row { 
+    padding: 20px 10px; 
+  }
+  .brutal-img-frame { 
+    height: 200px; 
+  }
+
+  /* Tournaments smaller */
+  .tournament-section .title-massive { 
+    font-size: 2.5rem; 
+  }
+  .tournament-card { 
+    height: 350px; 
+  }
+
+  /* FAQ adjustments */
+  .faq-trigger { 
+    font-size: 1.1rem; 
+    padding: 18px; 
+  }
+  .faq-content p { 
+    padding: 0 18px 18px 18px; 
+    font-size: 0.9rem; 
+  }
+  
+  /* Reviews adjustments */
+  .reviews-section { 
+    padding: 80px 0; 
+  }
+  .review-card { 
+    width: 280px; 
+    padding: 20px; 
+  }
+
+  /* Footer legal centered */
+  .footer-legal {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* Small Mobile (max-width: 685px) */
+@media (max-width: 685px) {
+  .newsletter-form-container { 
+    flex-direction: column; 
+  }
+  .footer-wrapper { 
+    flex-direction: column; 
+    text-align: center; 
+  }
+  .footer-links { 
+    flex-direction: column; 
+    gap: 15px; 
+  }
+}
+
+/* Extra Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .title-massive { 
+    font-size: 2.5rem; 
+  }
+  .subtitle { 
+    font-size: 1.4rem; 
+  }
+  .btn-unified { 
+    font-size: 1.5rem; 
+    padding: 14px 20px; 
+  }
+  .equip-text-side .title-massive { 
+    font-size: 2.2rem; 
+  }
+}
+
+
+/* =========================================
+   INDEX.HTML NEW SECTIONS STYLES
+   (Prefijo idx- para evitar conflictos con home3.html)
+   ========================================= */
+
+/* --- SECTION 1: HERO DE DETALLE --- */
+.idx-hero-section {
+    background-color: var(--bg-black);
+    padding: 100px 6%;
+    color: var(--bg-white);
+}
+.idx-hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.idx-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: block;
+}
+.idx-hero-title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+.idx-hero-subtitle {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+.idx-hero-paragraph {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cccccc;
+    max-width: 500px;
+}
+
+/* Price Card */
+.idx-price-card {
+    background-color: var(--bg-white);
+    color: var(--bg-black);
+    padding: 40px;
+    position: relative;
+    box-shadow: 15px 15px 0px var(--color-neon);
+    display: flex;
+    flex-direction: column;
+}
+.idx-card-header { margin-bottom: 30px; }
+.idx-card-tag {
+    background-color: var(--color-neon);
+    color: var(--bg-black);
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    padding: 6px 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+.idx-card-title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+.idx-card-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.idx-price-block {
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+    padding: 20px 0;
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 15px;
+}
+.idx-price-main {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+}
+.idx-price-usd {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #666;
+}
+.idx-installments {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--bg-white);
+    background-color: var(--bg-black);
+    padding: 4px 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.idx-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.idx-feature-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.idx-feature-item i {
+    color: var(--color-neon);
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+.idx-cta-btn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background-color: var(--bg-black);
+    color: var(--bg-white);
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    margin-top: auto;
+}
+.idx-cta-btn:hover {
+    background-color: var(--color-neon);
+    color: var(--bg-black);
+}
+.idx-cta-btn i {
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+.idx-cta-btn:hover i { transform: translateX(5px); }
+
+/* --- SECTION 2: MODULOS DEL CURSO --- */
+.idx-modules-section {
+    background-color: var(--bg-black);
+    padding: 120px 6%;
+    color: var(--bg-white);
+}
+.idx-modules-header {
+    max-width: 1400px;
+    margin: 0 auto 80px auto;
+    text-align: center;
+}
+/* 5 Levels of Lecture for Section Header */
+.idx-sec-lvl-1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-neon);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+.idx-sec-lvl-2 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+.idx-sec-lvl-3 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+.idx-sec-lvl-4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cccccc;
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+}
+.idx-sec-lvl-5 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Module Cards Grid */
+.idx-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.idx-module-card {
+    background-color: var(--bg-white);
+    color: var(--bg-black);
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 4px solid var(--bg-black);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.idx-module-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 10px 10px 0px var(--color-neon);
+}
+
+/* 6 Levels of Lecture for Cards */
+.idx-card-lvl-1 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 5px;
+    border-bottom: 3px solid var(--bg-black);
+    padding-bottom: 10px;
+}
+.idx-card-lvl-2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+.idx-card-lvl-3 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--bg-black);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.idx-card-lvl-3::before {
+    content: "//";
+    color: var(--color-neon);
+    font-weight: 900;
+}
+.idx-card-lvl-4 {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.idx-card-lvl-4 li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #444;
+    padding-left: 15px;
+    position: relative;
+}
+.idx-card-lvl-4 li::before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    color: #999;
+}
+.idx-card-lvl-5 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--bg-white);
+    background-color: var(--bg-black);
+    padding: 4px 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: flex-start;
+}
+.idx-card-lvl-6 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.idx-module-block {
+    border-top: 1px dashed #ddd;
+    padding-top: 15px;
+}
+.idx-module-block:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* --- SECTION 3: ALUMNOS 2025 --- */
+.idx-alumni-section {
+    background-color: var(--cream-grey);
+    padding: 120px 6%;
+    color: var(--bg-black);
+}
+.idx-alumni-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.idx-alumni-title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin-bottom: 15px;
+}
+.idx-alumni-subtitle {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+.idx-alumni-paragraph {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #333;
+    max-width: 500px;
+}
+
+.idx-alumni-images {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.idx-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background-color: #ccc;
+    border: 4px solid var(--bg-black);
+}
+.idx-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+.idx-img-wrapper:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+.idx-img-overlay-top, .idx-img-overlay-bottom {
+    position: absolute;
+    left: 15px;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: var(--bg-black);
+    color: var(--bg-white);
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    z-index: 2;
+}
+.idx-img-overlay-top { top: 15px; }
+.idx-img-overlay-bottom {
+    bottom: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: var(--color-neon);
+    color: var(--bg-black);
+}
+
+/* --- SECTION 4: ACCREDITATION --- */
+.idx-accreditation-section {
+    background-color: var(--bg-dark-grey);
+    padding: 120px 6%;
+    color: var(--bg-white);
+    text-align: center;
+}
+.idx-acc-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+/* 6 Levels of Lecture */
+.idx-acc-lvl-1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-neon);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.idx-acc-lvl-2 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin: 0;
+}
+.idx-acc-lvl-3 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+.idx-acc-lvl-4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cccccc;
+    max-width: 700px;
+    margin: 0;
+}
+.idx-acc-lvl-5 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #999;
+    line-height: 1.5;
+    max-width: 620px;
+    margin: 0;
+    border-left: 6px solid var(--color-neon);
+    border-right: 6px solid var(--color-neon);
+    padding-left: 15px;
+    text-align: center;
+}
+.idx-acc-lvl-6 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+/* --- SECTION 5: OTHER COURSES --- */
+.idx-other-section {
+    background-color: var(--cream-grey);
+    padding: 120px 6%;
+    color: var(--bg-white);
+}
+.idx-other-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+.idx-other-col-cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+}
+.idx-other-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--color-neon);
+    color: var(--bg-black);
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 20px 30px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    width: max-content;
+}
+.idx-other-cta-btn:hover {
+    background-color: var(--bg-white);
+    transform: translateX(10px);
+}
+.idx-other-cta-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #aaaaaa;
+    max-width: 300px;
+}
+.idx-other-card {
+    background-color: var(--bg-white);
+    color: var(--bg-black);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 4px solid var(--bg-white);
+    transition: all 0.3s ease;
+}
+.idx-other-card:hover {
+    border-color: var(--color-neon);
+    transform: translateY(-10px);
+}
+.idx-other-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+.idx-other-title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+.idx-other-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #444;
+    margin-bottom: 30px;
+}
+.idx-other-link {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--bg-black);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 3px solid var(--color-neon);
+    padding-bottom: 5px;
+    transition: gap 0.2s ease;
+    align-self: flex-start;
+}
+.idx-other-link:hover { gap: 20px; }
+
+/* --- RESPONSIVE INDEX SECTIONS --- */
+@media (max-width: 1024px) {
+    .idx-hero-container,
+    .idx-alumni-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .idx-hero-paragraph, .idx-alumni-paragraph { margin: 0 auto; }
+    .idx-features-list {
+        grid-template-columns: 1fr;
+        text-align: left;
+        max-width: 400px;
+        margin: 0 auto 30px auto;
+    }
+    .idx-other-grid { grid-template-columns: 1fr; }
+    .idx-other-col-cta {
+        text-align: center;
+        align-items: center;
+    }
+    .idx-other-cta-text { margin: 0 auto; }
+}
+@media (max-width: 768px) {
+    .idx-hero-section, .idx-modules-section, .idx-alumni-section, .idx-accreditation-section, .idx-other-section {
+        padding: 80px 5%;
+    }
+    .idx-price-card {
+        padding: 30px 20px;
+        box-shadow: 10px 10px 0px var(--color-neon);
+    }
+    .idx-module-card { padding: 25px; }
+    .idx-img-wrapper { height: 220px; }
+    .idx-other-cta-btn {
+        font-size: 1.5rem;
+        padding: 15px 20px;
+    }
+}
+
+/* --- SECTION 6: COACHES TEAM --- */
+.idx-coaches-section {
+    background-color: var(--bg-light-grey);
+    padding: 120px 6%;
+    color: var(--bg-black);
+}
+.idx-coaches-header {
+    max-width: 1400px;
+    margin: 0 auto 80px auto;
+    text-align: center;
+}
+.idx-coaches-title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+.idx-coaches-subtitle {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+.idx-coaches-paragraph {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.idx-coaches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.idx-coach-card {
+    background-color: var(--bg-white);
+    border: 4px solid var(--bg-black);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.idx-coach-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 12px 12px 0px var(--color-neon);
+}
+.idx-coach-image-wrapper {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background-color: var(--bg-dark-grey);
+    position: relative;
+}
+.idx-coach-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+.idx-coach-card:hover .idx-coach-image {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+.idx-coach-role-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--color-neon);
+    color: var(--bg-black);
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+.idx-coach-info {
+    padding: 30px;
+}
+.idx-coach-name {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+.idx-coach-specialty {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-neon);
+    background-color: var(--bg-black);
+    display: inline-block;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+.idx-coach-role {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--bg-light-grey);
+}
+.idx-coach-bio {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .idx-coaches-section {
+        padding: 80px 5%;
+    }
+    .idx-coach-image-wrapper {
+        height: 300px;
+    }
+    .idx-coach-info {
+        padding: 20px;
+    }
+    .idx-coach-name {
+        font-size: 1.6rem;
+    }
+}
