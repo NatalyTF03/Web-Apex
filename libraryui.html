@@ -1,0 +1,642 @@
+<fsWrite>
+<path>libraryui.html</path>
+<content><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX UI Library</title>
+<link rel="stylesheet" href="Style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Library-specific styles */
+.library-section {
+padding: 80px 6%;
+border-bottom: 2px solid #333;
+}
+    .library-title {
+        font-family: 'Big Shoulders Display', sans-serif;
+        font-size: 3rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 4px solid var(--color-neon);
+    }
+    
+    .component-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 40px;
+    }
+    
+    .component-box {
+        background-color: var(--bg-white);
+        color: var(--bg-black);
+        padding: 30px;
+        border: 2px solid #ddd;
+    }
+    
+    .component-box.dark {
+        background-color: var(--bg-black);
+        color: var(--bg-white);
+        border-color: #333;
+    }
+    
+    .component-box.grey {
+        background-color: var(--cream-grey);
+        color: var(--bg-black);
+        border-color: #ccc;
+    }
+    
+    .component-box.light-grey {
+        background-color: var(--bg-light-grey);
+        color: var(--bg-black);
+        border-color: #ccc;
+    }
+    
+    .component-label {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--color-neon);
+        background-color: var(--bg-black);
+        padding: 4px 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    
+    .color-swatch {
+        display: inline-block;
+        width: 120px;
+        height: 120px;
+        margin: 10px;
+        border: 2px solid #333;
+        position: relative;
+    }
+    
+    .color-swatch::after {
+        content: attr(data-color);
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--bg-black);
+    }
+    
+    .demo-spacing {
+        margin: 20px 0;
+    }
+    
+    .demo-flex {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    .demo-grid-2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .demo-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .library-section {
+            padding: 60px 5%;
+        }
+        
+        .library-title {
+            font-size: 2rem;
+        }
+        
+        .component-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+</head>
+<body>
+<!-- HERO HEADER -->
+<section class="library-section" style="background-color: var(--bg-black); color: var(--bg-white); text-align: center;">
+<h1 class="title-massive" style="margin-bottom: 20px;">APEX UI LIBRARY</h1>
+<p class="paragraph" style="max-width: 700px; margin: 0 auto; color: #ccc;">
+Complete design system showcasing all components, typography levels, colors, and interactive elements used across the APEX Sim-Racing Academy platform.
+</p>
+</section>
+
+<!-- COLOR PALETTE -->
+<section class="library-section" style="background-color: var(--bg-white);">
+    <h2 class="library-title">Color Palette</h2>
+    <div class="demo-flex" style="justify-content: center; flex-wrap: wrap;">
+        <div class="color-swatch" style="background-color: var(--bg-black);" data-color="#000000"></div>
+        <div class="color-swatch" style="background-color: var(--bg-white);" data-color="#FFFFFF"></div>
+        <div class="color-swatch" style="background-color: var(--bg-light-grey);" data-color="#F4F4F4"></div>
+        <div class="color-swatch" style="background-color: var(--bg-dark-grey);" data-color="#121212"></div>
+        <div class="color-swatch" style="background-color: var(--color-neon);" data-color="#00FF66"></div>
+        <div class="color-swatch" style="background-color: var(--cream-grey);" data-color="#EDEDED"></div>
+    </div>
+</section>
+
+<!-- TYPOGRAPHY LEVELS -->
+<section class="library-section" style="background-color: var(--bg-light-grey);">
+    <h2 class="library-title text-black">Typography System</h2>
+    
+    <div class="component-box" style="margin-bottom: 30px;">
+        <span class="component-label">Level 1 - Title Massive</span>
+        <h1 class="title-massive">MASSIVE TITLE</h1>
+        <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">Big Shoulders Display // clamp(3.5rem, 8vw, 7.5rem) // Weight 900</p>
+    </div>
+
+    <div class="component-box grey" style="margin-bottom: 30px;">
+        <span class="component-label">Level 2 - Subtitle</span>
+        <h2 class="subtitle">SUBTITLE TEXT</h2>
+        <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">Big Shoulders Display // 1.8rem // Weight 800</p>
+    </div>
+
+    <div class="component-box" style="margin-bottom: 30px;">
+        <span class="component-label">Level 3 - Paragraph</span>
+        <p class="paragraph">This is a standard paragraph using Inter font. It's designed for readability across all screen sizes with optimal line height and spacing. The text flows naturally and maintains excellent legibility whether viewed on desktop or mobile devices.</p>
+        <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">Inter // 1.05rem // Weight 400 // Line-height 1.6</p>
+    </div>
+
+    <div class="component-box dark" style="margin-bottom: 30px;">
+        <span class="component-label">Level 4 - Price Tag</span>
+        <div class="price-tag">$480.000</div>
+        <p style="font-size: 0.85rem; color: #999; margin-top: 10px;">Big Shoulders Display // 3.5rem // Weight 900</p>
+    </div>
+
+    <div class="component-box">
+        <span class="component-label">Index Section Levels (1-6)</span>
+        <div style="margin-top: 20px;">
+            <span class="idx-sec-lvl-1">LEVEL 1 - EYEBROW</span>
+            <h2 class="idx-sec-lvl-2">LEVEL 2 - SECTION TITLE</h2>
+            <h3 class="idx-sec-lvl-3">LEVEL 3 - SUBTITLE</h3>
+            <p class="idx-sec-lvl-4">Level 4 - Paragraph text for detailed descriptions and explanations that provide context to the user.</p>
+            <span class="idx-sec-lvl-5">LEVEL 5 - SMALL TAG</span>
+        </div>
+    </div>
+</section>
+
+<!-- BUTTONS -->
+<section class="library-section" style="background-color: var(--bg-black); color: var(--bg-white);">
+    <h2 class="library-title" style="color: var(--bg-white);">Buttons & CTAs</h2>
+    
+    <div class="component-box dark" style="margin-bottom: 30px;">
+        <span class="component-label">Primary Button</span>
+        <div class="demo-spacing">
+            <a href="#" class="btn-unified">INSCRIBIRME AHORA</a>
+        </div>
+        <p style="font-size: 0.85rem; color: #999;">Black background // White text // Neon green on hover</p>
+    </div>
+
+    <div class="component-box dark" style="margin-bottom: 30px;">
+        <span class="component-label">Secondary Button</span>
+        <div class="demo-spacing">
+            <a href="#" class="btn-secondary">VER PROGRAMA</a>
+        </div>
+        <p style="font-size: 0.85rem; color: #999;">Dark grey background // White text // Neon green on hover</p>
+    </div>
+
+    <div class="component-box" style="margin-bottom: 30px;">
+        <span class="component-label">Value Section Button</span>
+        <div class="demo-spacing">
+            <a href="#" class="btn-value-section">UNIRME A DISCORD</a>
+        </div>
+        <p style="font-size: 0.85rem; color: #666;">White background // Black text // Neon green on hover</p>
+    </div>
+
+    <div class="component-box dark" style="margin-bottom: 30px;">
+        <span class="component-label">Index CTA Button</span>
+        <div class="demo-spacing">
+            <a href="#" class="idx-cta-btn">INSCRIBIRME <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <p style="font-size: 0.85rem; color: #999;">Full width // Black background // Arrow animation on hover</p>
+    </div>
+
+    <div class="component-box grey" style="margin-bottom: 30px;">
+        <span class="component-label">Other CTA Button</span>
+        <div class="demo-spacing">
+            <a href="#" class="idx-other-cta-btn">MÁS CURSOS <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <p style="font-size: 0.85rem; color: #666;">Neon green background // Black text // Slide animation on hover</p>
+    </div>
+</section>
+
+<!-- CARDS -->
+<section class="library-section" style="background-color: var(--cream-grey);">
+    <h2 class="library-title text-black">Cards & Components</h2>
+    
+    <div class="component-grid">
+        <!-- Course Card -->
+        <div>
+            <span class="component-label">Course Card</span>
+            <div class="course-card" style="margin-top: 15px;">
+                <div class="course-img-wrapper">
+                    <img src="assets/secondcourse.png" alt="Course">
+                    <div class="course-badge">12 MÓDULOS</div>
+                </div>
+                <div class="course-body">
+                    <h3 class="course-title">PILOTO SIM-RACING</h3>
+                    <p class="course-text">Práctica y análisis de pistas y estrategias en tiempo real con coaching personal.</p>
+                    <ul class="course-bullets">
+                        <li>Parámetros de deslizamiento</li>
+                        <li>Curvas de amortiguación</li>
+                        <li>Optimización de neumáticos</li>
+                    </ul>
+                    <div class="course-finance-box">
+                        <div class="course-price-container">
+                            <span class="course-price-ars">$480.000</span>
+                            <span class="course-price-usd">U$D 450</span>
+                        </div>
+                        <span class="course-installments">6 CUOTAS SIN INTERÉS</span>
+                    </div>
+                    <a href="#" class="btn-unified btn-enroll">INSCRIBIRME</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Course Card -->
+        <div>
+            <span class="component-label">Featured Course Card</span>
+            <div class="course-card featured" style="margin-top: 15px;">
+                <div class="callout-tag">MÁS ELEGIDO</div>
+                <div class="course-img-wrapper">
+                    <img src="assets/secondcourse.png" alt="Course">
+                    <div class="course-badge">12 MÓDULOS</div>
+                </div>
+                <div class="course-body">
+                    <h3 class="course-title">PILOTO SIM-RACING</h3>
+                    <p class="course-text">Práctica y análisis de pistas y estrategias en tiempo real con coaching personal.</p>
+                    <ul class="course-bullets">
+                        <li>Parámetros de deslizamiento</li>
+                        <li>Curvas de amortiguación</li>
+                        <li>Optimización de neumáticos</li>
+                    </ul>
+                    <div class="course-finance-box">
+                        <div class="course-price-container">
+                            <span class="course-price-ars">$480.000</span>
+                            <span class="course-price-usd">U$D 450</span>
+                        </div>
+                        <span class="course-installments">6 CUOTAS SIN INTERÉS</span>
+                    </div>
+                    <a href="#" class="btn-unified btn-enroll">INSCRIBIRME</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module Card -->
+        <div>
+            <span class="component-label">Module Card</span>
+            <div class="idx-module-card" style="margin-top: 15px;">
+                <div>
+                    <h3 class="idx-card-lvl-1">MÓDULO 1</h3>
+                    <span class="idx-card-lvl-2">BLOQUE 01 // BASICS</span>
+                </div>
+                <div class="idx-module-block">
+                    <h4 class="idx-card-lvl-3">FÍSICA DEL VEHÍCULO</h4>
+                    <ul class="idx-card-lvl-4">
+                        <li>Transferencia de masas</li>
+                        <li>Aerodinámica básica</li>
+                        <li>Neumáticos y grip</li>
+                        <li>Geometría de suspensión</li>
+                    </ul>
+                    <span class="idx-card-lvl-5">4 TEMAS // 2H PRÁCTICA</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coach Card -->
+        <div>
+            <span class="component-label">Coach Card</span>
+            <div class="idx-coach-card" style="margin-top: 15px;">
+                <div class="idx-coach-image-wrapper">
+                    <img src="assets/coach_1.png" alt="Coach" class="idx-coach-image">
+                    <span class="idx-coach-role-badge">HEAD COACH</span>
+                </div>
+                <div class="idx-coach-info">
+                    <h3 class="idx-coach-name text-black">Martín Rodríguez</h3>
+                    <span class="idx-coach-specialty">Técnica de Conducción</span>
+                    <div class="idx-coach-role">Racing Coach</div>
+                    <p class="idx-coach-bio">Ex-piloto de TC2000 con 15 años de experiencia en pista. Especialista en trazadas, frenadas y técnicas de adelantamiento.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tournament Card -->
+        <div>
+            <span class="component-label">Tournament Card</span>
+            <div class="tournament-card" style="margin-top: 15px;">
+                <img src="assets/torneo_1.png" alt="Tournament" class="card-bg-image">
+                <div class="tournament-footer">
+                    <h3 class="subtitle tournament-tag">TORNEO ACADÉMICO</h3>
+                    <a href="#" class="btn-unified tournament-btn">INSCRIBIRME</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Card -->
+        <div>
+            <span class="component-label">Review Card</span>
+            <div class="review-card" style="margin-top: 15px;">
+                <div class="user-meta">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="User">
+                    <div>
+                        <h4>Marcus Vance</h4>
+                        <span class="course-taken">Telemetría Avanzada</span>
+                    </div>
+                </div>
+                <p class="review-text">"Con APEX llevé mi lectura y análisis de gráficos a otro nivel. Lo que aprendí de telemetría acá, no me lo olvido más."</p>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BADGES & TAGS -->
+<section class="library-section" style="background-color: var(--bg-white);">
+    <h2 class="library-title">Badges & Tags</h2>
+    
+    <div class="component-box">
+        <span class="component-label">Callout Tag</span>
+        <div class="demo-spacing" style="position: relative; height: 80px;">
+            <span class="callout-tag" style="position: static;">MÁS ELEGIDO</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #666;">Neon green background // Black text // Used for featured items</p>
+    </div>
+
+    <div class="component-box dark" style="margin-top: 30px;">
+        <span class="component-label">Course Badge</span>
+        <div class="demo-spacing">
+            <span class="course-badge">12 MÓDULOS</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #999;">Black background // White text // Overlays on images</p>
+    </div>
+
+    <div class="component-box grey" style="margin-top: 30px;">
+        <span class="component-label">Installment Tag</span>
+        <div class="demo-spacing">
+            <span class="course-installments">6 CUOTAS SIN INTERÉS</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #666;">Black background // Neon green text // Financial information</p>
+    </div>
+
+    <div class="component-box" style="margin-top: 30px;">
+        <span class="component-label">Course Taken Tag</span>
+        <div class="demo-spacing">
+            <span class="course-taken">Telemetría Avanzada</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #666;">Light grey background // Dark grey text // User course info</p>
+    </div>
+
+    <div class="component-box dark" style="margin-top: 30px;">
+        <span class="component-label">Coach Specialty Tag</span>
+        <div class="demo-spacing">
+            <span class="idx-coach-specialty">Técnica de Conducción</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #999;">Black background // Neon green text // Coach specialization</p>
+    </div>
+</section>
+
+<!-- INPUTS & FORMS -->
+<section class="library-section" style="background-color: var(--bg-dark-grey); color: var(--bg-white);">
+    <h2 class="library-title" style="color: var(--bg-white);">Inputs & Forms</h2>
+    
+    <div class="component-box dark">
+        <span class="component-label">Newsletter Input</span>
+        <div class="newsletter-form-container" style="margin-top: 20px;">
+            <input type="email" class="brutal-input" placeholder="tu@email.com">
+            <button class="btn-unified">ENVIAR</button>
+        </div>
+        <p style="font-size: 0.85rem; color: #999; margin-top: 15px;">Dark background // White text // Neon green border on focus</p>
+    </div>
+</section>
+
+<!-- TABLES -->
+<section class="library-section" style="background-color: var(--cream-grey);">
+    <h2 class="library-title text-black">Tables & Data</h2>
+    
+    <div class="component-box">
+        <span class="component-label">Leaderboard Table</span>
+        <div class="table-container" style="margin-top: 20px;">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>PUNTOS</th>
+                        <th>MEJOR VUELTA</th>
+                        <th>TIEMPO ACUM.</th>
+                        <th>AVG SPEED</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Josefina Anchorena</td>
+                        <td>2,485 PTS</td>
+                        <td>1:27.402</td>
+                        <td>14h 22m</td>
+                        <td>244.2 KM/H</td>
+                    </tr>
+                    <tr>
+                        <td>Ismael Silva</td>
+                        <td>2,310 PTS</td>
+                        <td>1:28.195</td>
+                        <td>18h 45m</td>
+                        <td>241.1 KM/H</td>
+                    </tr>
+                    <tr>
+                        <td>Sofía Ferro</td>
+                        <td>2,195 PTS</td>
+                        <td>1:29.002</td>
+                        <td>12h 10m</td>
+                        <td>239.8 KM/H</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: #666; margin-top: 15px;">Black header // White text // Hover effect on rows</p>
+    </div>
+</section>
+
+<!-- FAQ ACCORDION -->
+<section class="library-section" style="background-color: var(--bg-white);">
+    <h2 class="library-title">FAQ Accordion</h2>
+    
+    <div class="faq-accordion-container">
+        <div class="faq-box">
+            <div class="faq-trigger">
+                <span>¿Necesito tener experiencia previa?</span>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-content">
+                <p>No, para nada. El curso está diseñado desde cero. Contamos con niveles que van desde el principiante absoluto hasta pilotos avanzados.</p>
+            </div>
+        </div>
+        
+        <div class="faq-box">
+            <div class="faq-trigger">
+                <span>¿Hay un límite de edad para inscribirse?</span>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-content">
+                <p>El curso está abierto a apasionados de los motores de todas las edades (generalmente a partir de los 12 o 14 años).</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOTSPOT INTERACTIVE -->
+<section class="library-section" style="background-color: var(--cream-grey);">
+    <h2 class="library-title text-black">Interactive Hotspots</h2>
+    
+    <div class="component-box">
+        <span class="component-label">Hotspot Button & Card</span>
+        <div style="position: relative; height: 400px; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) ; margin-top: 20px;">
+            <div class="hotspot" style="top: 30%; left: 40%;">
+                <button class="hotspot-btn">+</button>
+                <div class="hotspot-card">
+                    <h4>TRIPLE PANTALLA</h4>
+                    <p>Triple 32" 240Hz pantallas para una vista panoramica de la pista.</p>
+                </div>
+            </div>
+        </div>
+        <p style="font-size: 0.85rem; color: #666; margin-top: 15px;">Hover to reveal card // Black button // Neon green on hover</p>
+    </div>
+</section>
+
+<!-- NAVIGATION ELEMENTS -->
+<section class="library-section" style="background-color: var(--bg-black); color: var(--bg-white);">
+    <h2 class="library-title" style="color: var(--bg-white);">Navigation Elements</h2>
+    
+    <div class="component-box dark">
+        <span class="component-label">Navbar</span>
+        <div class="navbar" style="margin-top: 20px; position: static;">
+            <div class="nav-logo">APEX<span>//</span></div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Cursos</a></li>
+                <li><a href="#">Hardware</a></li>
+                <li><a href="#">Torneos</a></li>
+            </ul>
+        </div>
+        <p style="font-size: 0.85rem; color: #999; margin-top: 15px;">Sticky navigation // Logo with neon accent // Hover effects on links</p>
+    </div>
+
+    <div class="component-box dark" style="margin-top: 30px;">
+        <span class="component-label">Footer Links</span>
+        <div style="margin-top: 20px;">
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About APEX</a></li>
+                <li><a href="#">Cursos</a></li>
+                <li><a href="#">Hardware</a></li>
+                <li><a href="#">Torneos</a></li>
+            </ul>
+        </div>
+        <p style="font-size: 0.85rem; color: #999; margin-top: 15px;">Grey text // Neon green on hover // Uppercase</p>
+    </div>
+</section>
+
+<!-- UTILITY CLASSES -->
+<section class="library-section" style="background-color: var(--bg-light-grey);">
+    <h2 class="library-title text-black">Utility Classes</h2>
+    
+    <div class="component-box">
+        <span class="component-label">Text Colors</span>
+        <div class="demo-spacing">
+            <p class="text-black" style="background-color: #fff; padding: 10px;">.text-black - Black text on white</p>
+            <p class="text-white" style="background-color: #000; padding: 10px;">.text-white - White text on black</p>
+            <p class="text-neon" style="background-color: #000; padding: 10px;">.text-neon - Neon green text</p>
+        </div>
+    </div>
+
+    <div class="component-box grey" style="margin-top: 30px;">
+        <span class="component-label">Text Alignment</span>
+        <div class="demo-spacing">
+            <p class="text-center">.text-center - Centered text</p>
+        </div>
+    </div>
+
+    <div class="component-box" style="margin-top: 30px;">
+        <span class="component-label">Max Width Center</span>
+        <div class="demo-spacing">
+            <p class="max-width-center" style="background-color: #f0f0f0; padding: 10px;">.max-width-center - Centered with max-width 650px</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-root">
+    <div class="footer-wrapper">
+        <div class="footer-brand-block">
+            <div class="footer-logo">APEX<span>//</span></div>
+            <div class="footer-contact-info">
+                <p class="contact-item"><i class="fas fa-envelope"></i> info@apexsimacademy.com</p>
+                <p class="contact-item"><i class="fas fa-map-marker-alt"></i> Av. Del Libertador 4200, Palermo, CABA</p>
+            </div>
+        </div>
+        
+        <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About APEX</a></li>
+            <li><a href="#">Cursos</a></li>
+            <li><a href="#">Hardware</a></li>
+            <li><a href="#">Torneos</a></li>
+        </ul>
+    </div>
+    
+    <div class="footer-legal">
+        <p class="legal-copy">© 2026 APEX ACADEMY. Todos los derechos reservados.</p>
+        <div>
+            <a href="#" class="legal-link">Terms</a>
+            <span style="color: #444;">&</span>
+            <a href="#" class="legal-link">Conditions</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // FAQ Accordion functionality
+    document.querySelectorAll('.faq-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const box = trigger.parentElement;
+            const content = box.querySelector('.faq-content');
+            const icon = trigger.querySelector('i');
+            
+            box.classList.toggle('open');
+            
+            if (box.classList.contains('open')) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            } else {
+                content.style.maxHeight = 0;
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+</content>
+</fsWrite>
